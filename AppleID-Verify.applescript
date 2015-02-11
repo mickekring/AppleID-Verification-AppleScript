@@ -1,5 +1,5 @@
-set ourDomain to "domain.com"
-set secretWord to "yourPassword"
+set ourDomain to "domän.se"
+set secretWord to "Apple-ID-lösenordet"
 
 tell application "Mail"
 	
@@ -22,7 +22,7 @@ tell application "Mail"
 		-- at the top of this file and leave the script as it is.
 		
 		set theContent to source of theMessage
-		set parsedname to do shell script "echo " & (quoted form of theContent) & " | grep 'Dear '"
+		set parsedname to do shell script "echo " & (quoted form of theContent) & " | grep 'Hej '"
 		set a to word 2 of parsedname
 		set b to word 3 of parsedname
 		set aidEmail to a & "-" & b & "@" & ourDomain
@@ -33,7 +33,7 @@ tell application "Mail"
 		
 		set startofurl to the offset of "https://id" in theContent
 		set theContent to rich text startofurl through -1 of theContent
-		set endofurl to offset of "en_GB" in theContent
+		set endofurl to offset of "SV_SE" in theContent
 		
 		-- the following 3 lines of code just clean up the link as it was getting
 		-- some funny characters because it was encoded as QUOTED PRINTABLE
@@ -41,7 +41,7 @@ tell application "Mail"
 		set theLink to replace_chars(theLink, "=3D", "=") of me
 		set theLink to replace_chars(theLink, "=
 ", "") of me
-				
+		
 		tell application "Safari"
 			open location theLink
 			
