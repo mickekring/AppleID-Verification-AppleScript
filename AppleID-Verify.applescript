@@ -1,5 +1,5 @@
-set ourDomain to "domän.se"
-set secretWord to "Apple-ID-lösenordet"
+set ourDomain to "dindomän.se"
+set secretWord to "DittLösenord"
 
 tell application "Mail"
 	
@@ -14,18 +14,16 @@ tell application "Mail"
 	
 	repeat with theMessage in theseMessages
 		
-		-- My emails were formed as follows: ipad-01@domain.com
-		-- The following code parses the above into two words:
-		-- Word 'a' is ipad and word 'b' is 01
-		-- Also, I had set different passwords for each account with the following format: ipad-secretword-01
+		-- My emails were formed as follows: ipad001@domain.com
+		-- Word 'a' is ipad001
 		-- if you have the same password for all of your accounts, set it as the secretWord
 		-- at the top of this file and leave the script as it is.
 		
 		set theContent to source of theMessage
-		set parsedname to do shell script "echo " & (quoted form of theContent) & " | grep 'Hej '"
-		set a to word 2 of parsedname
-		set b to word 3 of parsedname
-		set aidEmail to a & "-" & b & "@" & ourDomain
+		set parsedname to do shell script "echo " & (quoted form of theContent) & " | grep 'Du '"
+		set a to word 4 of parsedname
+		
+		set aidEmail to a & "@" & ourDomain
 		set aidPassword to secretWord
 		-- set aidPassword to a & "-" & secretWord & "-" & b
 		
