@@ -1,5 +1,5 @@
-set ourDomain to "dindomän.se"
-set secretWord to "DittLösenord"
+set ourDomain to "dindoman.se"
+set secretWord to "DittLosenord"
 
 tell application "Mail"
 	
