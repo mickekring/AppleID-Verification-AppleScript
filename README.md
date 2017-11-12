@@ -1,6 +1,9 @@
 Apple ID Verification SWE
 ---------------------
 
+### UPDATE: Nov 12, 2017 - No support on this project
+I haven't used this since 2015 which means I haven't updated it either. I'll let it live here for a while longer though...
+
 ### Purpose & Features
 
 After creating Apple IDs for deploying a large quantity of iOS devices 
